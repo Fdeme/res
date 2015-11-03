@@ -2,9 +2,18 @@
 *学习GitHub怎么创建项目
 *1.创建好项目后,把本地项目创建成版本库:git init
 *2.随便修改创建一个文件，添加和修改内容完成推送
+
+
+****************
+*创建ssh_key:ssh-keygen -t rsa -C "youremail@example.com"
+
+
 ****************
 *Git远程GitHub仓库
 
+
+
+****************
 *本地推送到GitHub
   git clone git@github.com:Fdeme/res.git
   git add README.md
