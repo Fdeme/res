@@ -28,40 +28,52 @@
    </foreach>  
 </div>     
 <div style="width:300px;">
-  <form action="" method="post">
+ 
      <table style="float:left;">
        <tr>
          <td>姓名:</td>
-         <td><input type="text" name="username"></td>
+         <td><input type="text" name="username" id="username"></td>
        </tr>
        <tr>
          <td>标题:</td>
-         <td><input type="text" name="title"></td>
+         <td><input type="text" name="title" id="title"></td>
        </tr>
        <tr>
          <td>内容</td>
-         <td><textarea name="desc" cols="30" rows="5"></textarea></td>
+         <td><textarea name="desc" cols="30" rows="5" id="desc"></textarea></td>
        </tr>      
      </table>
-     <button style="margin-right:10px; float:right;">提交</button>
-  </form>   
+     <button id="but" style="margin-right:10px; float:right;">提交</button>
+
+
 </div>     
 </body>
 <script>
-     $('button').click(function(){
+     $('#but').click(function(){
+      
+      var username = $("#username").val();
+      var title = $("#title").val();
+      var desc = $("#desc").val();
+
       $.ajax({
-         url:{"U('Ajax/index')"},var_dump($_POST);
-         type:'post',
-         datatype:'json',
-         data:{
-          'name':username,
-          'title':title,
-          'desc':desc
-         },
-         success.function(data){
-
-
-         }
+             url:"{:U('Ajax/index')}",
+             type:'post',
+             datatype:'json',
+             data:{
+              'username':username,
+              'title':title,
+              'desc':desc
+             },
+             success:function(data){ 
+                alert(data);              
+                if(data==1){
+          			   alert("留言成功！");
+          			   window.location.herf="U('Ajax/index')";
+          			}else{
+          			    alert("留言失败！");
+                    return false;			   
+          			}
+             }
       });
      });
 </script>
